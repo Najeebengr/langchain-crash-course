@@ -1,18 +1,34 @@
-# Chat Model Documents: https://python.langchain.com/v0.2/docs/integrations/chat/
-# OpenAI Chat Model Documents: https://python.langchain.com/v0.2/docs/integrations/chat/openai/
-
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+import streamlit as st
 
-# Load environment variables from .env
+# Load environment variables
 load_dotenv()
 
-# Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+# Initialize the Chat Model
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash-exp",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    # other params...
+)
 
-# Invoke the model with a message
-result = model.invoke("What is 81 divided by 9?")
-print("Full result:")
-print(result)
-print("Content only:")
-print(result.content)
+# Streamlit App
+st.title("Chat Model Basic")
+
+# Input Text Box
+user_input = st.text_input("Enter your question:", "What is the capital of France?")
+
+if st.button("Get Answer"):
+    try:
+        # Invoke the model with the user input
+        result = llm.invoke(user_input)
+        
+        # Display the result
+        st.subheader("Answer:")
+        st.write(result.content)
+    except Exception as e:
+        # Handle exceptions
+        st.error(f"Error: {str(e)}")
