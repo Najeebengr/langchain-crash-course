@@ -31,7 +31,7 @@ Welcome to the LangChain Crash Course repository! This repo contains all the cod
 2. Create a new conda environment:
 
    ```bash
-   conda create -n langchain-env python=3.11
+   `conda create -n langchain-env python=3.12`
    ```
 
 3. Activate the environment:
