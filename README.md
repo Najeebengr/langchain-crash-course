@@ -1,3 +1,4 @@
+
 # LangChain Crash Course
 
 Welcome to the LangChain Crash Course repository! This repo contains all the code examples you'll need to follow along with the LangChain Master Class for Beginners video. By the end of this course, you'll know how to use LangChain to create your own AI agents, build RAG chatbots, and automate tasks with AI.
@@ -16,25 +17,36 @@ Welcome to the LangChain Crash Course repository! This repo contains all the cod
 ### Prerequisites
 
 - Python 3.10 or 3.11
-- Poetry (Follow this [Poetry installation tutorial](https://python-poetry.org/docs/#installation) to install Poetry on your system)
+- Conda (Follow this [Conda installation tutorial](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to install Conda on your system)
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   <!-- TODO: UPDATE TO MY  -->
-   git clone https://github.com/bhancockio/langchain-crash-course
+   git clone https://github.com/Najeebengr/langchain-crash-course
    cd langchain-crash-course
    ```
 
-2. Install dependencies using Poetry:
+2. Create a new conda environment:
 
    ```bash
-   poetry install --no-root
+   conda create -n langchain-env python=3.11
    ```
 
-3. Set up your environment variables:
+3. Activate the environment:
+
+   ```bash
+   conda activate langchain-env
+   ```
+
+4. Install the required dependencies from `requirements.txt`:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Set up your environment variables:
 
    - Rename the `.env.example` file to `.env` and update the variables inside with your own values. Example:
 
@@ -42,16 +54,10 @@ Welcome to the LangChain Crash Course repository! This repo contains all the cod
    mv .env.example .env
    ```
 
-4. Activate the Poetry shell to run the examples:
+6. Run the code examples:
 
    ```bash
-   poetry shell
-   ```
-
-5. Run the code examples:
-
-   ```bash
-    python 1_chat_models/1_chat_model_basic.py
+   python 1_chat_models/1_chat_model_basic.py
    ```
 
 ## Repository Structure
@@ -132,7 +138,7 @@ Each script in this repository contains detailed comments explaining the purpose
 A: LangChain is a framework designed to simplify the process of building applications that utilize language models.
 
 **Q: How do I set up my environment?**  
-A: Follow the instructions in the "Getting Started" section above. Ensure you have Python 3.10 or 3.11 installed, install Poetry, clone the repository, install dependencies, rename the `.env.example` file to `.env`, and activate the Poetry shell.
+A: Follow the instructions in the "Getting Started" section above. Ensure you have Python 3.10 or 3.11 installed, install dependencies from `requirements.txt`, rename the `.env.example` file to `.env`, and activate the Conda environment.
 
 **Q: I am getting an error when running the examples. What should I do?**  
 A: Ensure all dependencies are installed correctly and your environment variables are set up properly. If the issue persists, seek help in the Skool community or open an issue on GitHub.
